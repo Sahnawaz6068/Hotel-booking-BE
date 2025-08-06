@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import { connectionDB } from "./utils/db.js";
 
 import {HotelRoutes} from './routes/v1/HotelRoutes.js';
+import { UserRoutes } from "./routes/v1/UserRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -13,7 +14,8 @@ const DB_URL=process.env.DB_URL;
 
 console.log("Reach1");
 //Route Setup
-app.use("/api/v1",HotelRoutes)
+app.use("/api/v1",HotelRoutes);
+app.use("/api/v1",UserRoutes);
 
 
 async function startApp(){
