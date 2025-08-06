@@ -4,6 +4,7 @@ import { connectionDB } from "./utils/db.js";
 
 import {HotelRoutes} from './routes/v1/HotelRoutes.js';
 import { UserRoutes } from "./routes/v1/UserRoutes.js";
+import { bookRoom } from "./routes/v1/bookRoom.js";
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,7 @@ console.log("Reach1");
 //Route Setup
 app.use("/api/v1",HotelRoutes);
 app.use("/api/v1",UserRoutes);
+app.use("/api/v1",bookRoom);
 
 
 async function startApp(){
