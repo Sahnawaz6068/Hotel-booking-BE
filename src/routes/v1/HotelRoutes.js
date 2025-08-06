@@ -36,6 +36,46 @@ HotelRoutes.post("/hotel",async (req,res)=>{
     }
 })
 
+//Get all the Hotel
+HotelRoutes.get("/hotel",async (req,res)=>{
+
+    try{
+        const hotels=await HotelModel.find()
+    res.status(StatusCodes.OK).json({
+        msg:"All hotels are here",
+        response:hotels
+    })
+    }catch(err){
+        res.status(StatusCodes.BAD_REQUEST).json({
+            error:err
+        })
+    }
+})
+
+//Get hotel by Hotel id
+HotelRoutes.get("/hotel/:id", async (req, res) => {
+    const hotelId = req.params.id;
+
+    try {
+        const hotel = await HotelModel.findById(hotelId);
+
+        if (!hotel) {
+            return res.status(StatusCodes.NOT_FOUND).json({
+                msg: "Hotel not found",
+            });
+        }
+
+        res.status(StatusCodes.OK).json({
+            msg: "Hotel found by ID",
+            response: hotel,
+        });
+    } catch (err) {
+        res.status(StatusCodes.BAD_REQUEST).json({
+            error: err.message || "Something went wrong",
+        });
+    }
+});
+
 
 export { HotelRoutes };
 
