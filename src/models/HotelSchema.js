@@ -6,7 +6,7 @@ const HotelSchema= new mongoose.Schema({
         required:true,
         trim:true,
         minlength:4,
-        maxlength:50,
+        maxlength:100,
     },
     city:{
         type:String,
@@ -19,10 +19,6 @@ const HotelSchema= new mongoose.Schema({
         type:Number,
         required:true,
     },
-    hotelId:{
-        type:Number,
-        required:true
-    },
     imageUrl:{
         type:String,
         required:true
@@ -33,4 +29,6 @@ const HotelSchema= new mongoose.Schema({
 })
 
 
-export const HotelModel=mongoose.model("Hotel",HotelSchema);
+const HotelModel=mongoose.model("Hotel",HotelSchema);
+
+export {HotelModel};

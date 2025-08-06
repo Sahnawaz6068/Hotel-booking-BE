@@ -24,7 +24,7 @@ async function startApp(){
             console.log(`App is listening on port: ${PORT}`)
         });
     }catch(err){
-        console.error(err)
+        console.error(err.message)
 
         console.log("something wrong happen")
     }
