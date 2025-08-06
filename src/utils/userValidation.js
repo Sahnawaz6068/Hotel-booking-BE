@@ -20,4 +20,18 @@ const userDataValidation = (req, res, next) => {
     next(); 
 };
 
-export { userDataValidation };
+const signInDataValidation = (req, res, next) => {
+    const { email, password } = req.body;
+
+    if (!email || !validator.isEmail(email)) {
+        return res.status(400).json({ error: "Invalid email." });
+    }
+
+    if (!password || password.length < 6||!validator.isStrongPassword(password)) {
+        return res.status(400).json({ error: "Plese make Password Strong" });
+    }
+
+    next(); 
+};
+
+export { userDataValidation,signInDataValidation };
