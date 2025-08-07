@@ -15,7 +15,7 @@ HotelRoutes.get("/test2",(req,res)=>{
 
 //Routes for Creating Hotel
 HotelRoutes.post("/hotel",async (req,res)=>{
-    const {hotelName,city,price,imageUrl,description}=req.body;
+    const {hotelName,city,price,imageUrl,description,rooms,imageUrl2}=req.body;
 
     try{
         const hotel=await HotelModel.create({
@@ -23,7 +23,9 @@ HotelRoutes.post("/hotel",async (req,res)=>{
         city,
         price:parseInt(price),
         imageUrl,
-        description
+        description,
+        rooms,
+        imageUrl2
     })
     res.status(StatusCodes.OK).json({
         msg:"New Hotel created",

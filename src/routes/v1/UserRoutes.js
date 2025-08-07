@@ -62,6 +62,9 @@ UserRoutes.post("/signin", signInDataValidation, async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
+    //Store token in Cookies
+      res.cookie("token", token);
+      
     res.status(200).json({
       msg: "Login successful",
       token,

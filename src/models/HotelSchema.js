@@ -23,8 +23,16 @@ const HotelSchema= new mongoose.Schema({
         type:String,
         required:true
     },
+    imageUrl2:{
+        type:String,
+        required:true
+    },
     description:{
         type: String, required: true
+    },
+    rooms:{
+        type:Number,
+        required:true
     }
 })
 

@@ -5,12 +5,13 @@ import { authMiddleware } from "../../middlewares/authMiddleware.js";
 
 const bookRoom = Router();
 
-bookRoom.post("/bookRoom",authMiddleware, async (req, res) => {
+bookRoom.post("/bookRoom", authMiddleware, async (req, res) => {
   const { hotel, checkInDate, checkOutDate, numberOfGuests, room } = req.body;
-  const userId = req.user.id;
-  console.log(userId);
-  
+
   try {
+    const userId = req.user.id;
+    console.log("user id is :" + userId);
+    
     const booking = await Booking.create({
       hotel,
       user: userId,
