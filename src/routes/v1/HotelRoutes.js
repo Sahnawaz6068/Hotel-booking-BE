@@ -12,7 +12,7 @@ HotelRoutes.get("/test",(req,res)=>{
 HotelRoutes.get("/test2",(req,res)=>{
     res.send("Hello ji125");
 })
-
+ 
 //Routes for Creating Hotel
 HotelRoutes.post("/hotel",async (req,res)=>{
     const {hotelName,city,price,imageUrl,description,rooms,imageUrl2}=req.body;

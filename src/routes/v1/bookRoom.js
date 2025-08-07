@@ -9,7 +9,7 @@ bookRoom.post("/bookRoom", authMiddleware, async (req, res) => {
   const { hotel, checkInDate, checkOutDate, numberOfGuests, room } = req.body;
 
   try {
-    const userId = req.user.id;
+    const userId = req.user.id; 
     console.log("user id is :" + userId);
     
     const booking = await Booking.create({

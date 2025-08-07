@@ -14,7 +14,7 @@ config({ path: path.resolve(__dirname, "../../../.env") });
 
 import { signInDataValidation, userDataValidation} from "../../utils/userValidation.js";
 
-console.log(
+console.log( 
   process.env.JWT_SECRET +
     "........................................................................."
 );
